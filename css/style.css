@@ -1,0 +1,348 @@
+/* ==========================================================================
+   omarbahhur.com — single stylesheet, no build step, no external requests.
+   Mobile-first. System font stack only.
+
+   THEME — the entire look of the site is controlled by the variables below.
+   To restyle (e.g. switch warm → dark/technical), edit ONLY this block.
+   ========================================================================== */
+
+:root {
+  /* -- Palette (current theme: warm & friendly) -- */
+  --color-bg:            #faf6f0;  /* page background */
+  --color-surface:       #ffffff;  /* cards, elevated areas */
+  --color-text:          #33291f;  /* body text */
+  --color-text-soft:     #6b5d4d;  /* secondary text, captions */
+  --color-accent:        #c2571b;  /* links, buttons, highlights */
+  --color-accent-soft:   #f4e3d3;  /* tinted backgrounds, tags */
+  --color-border:        #e8ddd0;  /* hairlines, card edges */
+  --color-footer-bg:     #33291f;  /* footer background */
+  --color-footer-text:   #e8ddd0;  /* footer text */
+
+  /* -- Typography -- */
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  --font-size-base: 1.0625rem;   /* 17px */
+  --line-height-base: 1.65;
+
+  /* -- Shape & depth -- */
+  --radius: 12px;
+  --shadow-card: 0 2px 10px rgba(51, 41, 31, 0.07);
+
+  /* -- Layout -- */
+  --content-width: 44rem;
+  --content-width-wide: 60rem;   /* projects grid */
+  --space: 1.25rem;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+  margin: 0 0 0.6em;
+}
+
+h1 { font-size: clamp(2rem, 6vw, 2.75rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.4rem, 4vw, 1.75rem); }
+h3 { font-size: 1.15rem; }
+
+p { margin: 0 0 1em; }
+
+a {
+  color: var(--color-accent);
+  text-underline-offset: 3px;
+}
+
+a:hover { text-decoration-thickness: 2px; }
+
+/* ==========================================================================
+   Header & nav
+   ========================================================================== */
+
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.site-header__inner {
+  max-width: var(--content-width-wide);
+  margin: 0 auto;
+  padding: 0.9rem var(--space);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.site-header__name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.1rem;
+}
+
+.site-nav a {
+  color: var(--color-text-soft);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.site-nav a:hover { color: var(--color-accent); }
+
+.site-nav a[aria-current="page"] {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Main layout
+   ========================================================================== */
+
+main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 2.5rem var(--space) 4rem;
+}
+
+main.wide { max-width: var(--content-width-wide); }
+
+.lede {
+  font-size: 1.15rem;
+  color: var(--color-text-soft);
+}
+
+/* ==========================================================================
+   Hero (home page)
+   ========================================================================== */
+
+.hero {
+  display: grid;
+  gap: 1.75rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .hero { grid-template-columns: 1fr auto; }
+  .hero__photo { order: 2; }
+}
+
+.hero__role {
+  color: var(--color-accent);
+  font-weight: 600;
+  margin: 0 0 0.35em;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hero__photo img,
+.figure-photo img {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+
+.hero__photo img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+figure {
+  margin: 0 0 1.5rem;
+}
+
+figcaption {
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   Buttons & profile links
+   ========================================================================== */
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: var(--color-accent);
+  color: #fff;
+  border: 1px solid var(--color-accent);
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.button:hover { opacity: 0.9; }
+
+.profile-links {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.profile-links a {
+  display: block;
+  padding: 0.9rem 1.1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--color-text);
+  box-shadow: var(--shadow-card);
+}
+
+.profile-links a:hover { border-color: var(--color-accent); }
+
+.profile-links .profile-links__label {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.profile-links .profile-links__detail {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+}
+
+/* ==========================================================================
+   Project cards
+   ========================================================================== */
+
+.project-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 700px) {
+  .project-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.project-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card__body {
+  padding: 1.1rem 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.project-card__body p { margin: 0; }
+
+.project-card__stack {
+  font-size: 0.82rem;
+  color: var(--color-text-soft);
+}
+
+.project-card__stack span {
+  display: inline-block;
+  background: var(--color-accent-soft);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  margin: 0 0.25rem 0.25rem 0;
+}
+
+.project-card__link { margin-top: auto; font-weight: 600; }
+
+.project-card__shot {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  background: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  font-size: 0.9rem;
+}
+
+.site-footer__inner {
+  max-width: var(--content-width-wide);
+  margin: 0 auto;
+  padding: 1.5rem var(--space);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+}
+
+.site-footer a { color: inherit; }
+
+/* ==========================================================================
+   404
+   ========================================================================== */
+
+.error-page {
+  text-align: center;
+  padding-top: 4rem;
+}
+
+.error-page .error-code {
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: 0.25em;
+}
