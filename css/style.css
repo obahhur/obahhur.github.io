@@ -309,6 +309,71 @@ figcaption {
 }
 
 /* ==========================================================================
+   Education / courses
+   ========================================================================== */
+
+.education-school {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.education-school h3 { margin: 0; }
+
+.education-school .education-meta {
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+}
+
+.course-columns {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+@media (min-width: 600px) {
+  .course-columns { grid-template-columns: 1fr 1fr; }
+}
+
+.course-group h4 {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-accent);
+}
+
+.course-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.course-list li {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+}
+
+.course-list li .course-code {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-text-soft);
+}
+
+.course-list--planned li {
+  background: transparent;
+  border-style: dashed;
+}
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 
