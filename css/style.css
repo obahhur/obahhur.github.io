@@ -266,6 +266,12 @@ figcaption {
   color: var(--color-text-soft);
 }
 
+.contact-aside {
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+  margin-top: 1.5rem;
+}
+
 /* ==========================================================================
    Project cards
    ========================================================================== */
