@@ -184,6 +184,19 @@ figure {
   margin: 0 0 1.5rem;
 }
 
+/* Portrait photos: don't let them span the full column width */
+.figure-photo--portrait {
+  max-width: 340px;
+}
+
+@media (min-width: 640px) {
+  .figure-photo--portrait {
+    float: right;
+    max-width: 300px;
+    margin: 0 0 1rem 1.5rem;
+  }
+}
+
 figcaption {
   font-size: 0.85rem;
   color: var(--color-text-soft);
