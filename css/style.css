@@ -328,6 +328,112 @@ figcaption {
 }
 
 /* ==========================================================================
+   Experience / company badges
+
+   NOTE: badges are stylized text monograms, NOT official company logos
+   (trademarks belong to their owners). To use a real logo you have rights
+   to, drop an image into the .company-badge and hide the text.
+   ========================================================================== */
+
+.experience {
+  list-style: none;
+  margin: 1.5rem 0 0.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 1.1rem;
+  align-items: start;
+}
+
+.company-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+  letter-spacing: 0.01em;
+  box-shadow: var(--shadow-card);
+  /* gentle float; disabled under prefers-reduced-motion below */
+  animation: badge-float 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Per-company tint (brand-ish colors, used only as styling — not logos). */
+.company-badge--cox      { background: #0071c5; }
+.company-badge--ups      { background: #5a3a22; }
+.company-badge--gm       { background: #1a5fab; }
+.company-badge--apple    { background: #333333; }
+.company-badge--proforma { background: #a02c2c; }
+
+/* Stagger the float so they don't bob in unison. */
+.experience__item:nth-child(2) .company-badge { animation-delay: 0.7s; }
+.experience__item:nth-child(3) .company-badge { animation-delay: 1.4s; }
+.experience__item:nth-child(4) .company-badge { animation-delay: 2.1s; }
+.experience__item:nth-child(5) .company-badge { animation-delay: 2.8s; }
+
+@keyframes badge-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .company-badge { animation: none; }
+}
+
+.experience__body h3 { margin: 0 0 0.15rem; }
+
+.experience__role { font-weight: 400; color: var(--color-text-soft); }
+
+.experience__meta {
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+  margin: 0 0 0.5rem;
+}
+
+.experience__body p:last-child { margin-bottom: 0; }
+
+/* ==========================================================================
+   Skill tags (career page)
+   ========================================================================== */
+
+.skill-group { margin-bottom: 1.1rem; }
+
+.skill-group h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-accent);
+  margin: 0 0 0.5rem;
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tags li {
+  background: var(--color-accent-soft);
+  color: var(--color-text);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
    Education / courses
    ========================================================================== */
 
