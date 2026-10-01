@@ -1,0 +1,6 @@
+# Internal project notes — NEVER publish these. This folder contains strategy,
+# infrastructure IDs, and working notes that must not go on the public website.
+project-notes/
+
+# OS / editor cruft
+.DS_Store
